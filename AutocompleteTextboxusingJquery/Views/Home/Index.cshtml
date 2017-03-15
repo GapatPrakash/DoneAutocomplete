@@ -1,0 +1,24 @@
+﻿
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript">
+  
+    $(function () {
+        $("#txtSearch").autocomplete({
+            source: '@Url.Action("GetStudents")',
+            minLength: 1
+        });
+    });
+</script>
+
+<div style="font-family:Arial">
+
+    @using (@Html.BeginForm())
+    {
+        <b>Name: </b>
+        @Html.TextBox("searchTerm", null, new { id = "txtSearch" })
+        <input type="submit" value="Search" />
+    }
+    
+    </div>
